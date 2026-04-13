@@ -1,1 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
 @import "tailwindcss";
+
+:root {
+  --color-primary: #0e2920;
+  --color-secondary: #213b32;
+  --color-text-primary: #cee797;
+  --color-text-dim: #374f44;
+  --color-lime: #ebf1dc;
+
+  --font-display: "Syne", sans-serif;;
+  --font-body: "Anton", sans-serif;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-dim: var(--color-text-dim);
+  --color-lime: var(--color-lime);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: var(--color-lime);
+;
+}
