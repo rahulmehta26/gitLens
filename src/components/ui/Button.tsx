@@ -23,10 +23,10 @@ const Button: React.FC<ButtonProps> = (
         <motion.button
             className={cn(
                 "py-3 overflow-hidden relative px-6",
-                "cursor-pointer ",
+                "flex justify-center items-center gap-4 cursor-pointer ",
                 "transition-all duration-300 ease-in-out",
                 "font-semibold hover:shadow-none custom-shadow",
-                variant === "ghost" ? " shadow-none p-0" : "border-2 rounded-full",
+                variant === "ghost" ? " p-0" : "border-2 rounded-full",
                 className,
                 variants[variant],
             )}
@@ -36,12 +36,7 @@ const Button: React.FC<ButtonProps> = (
             whileHover="hover"
         >
 
-            <motion.span
-                className="flex text-white items-center gap-3"
-                whileHover="hover"
-            >
-                {children}
-            </motion.span>
+            {children}
 
         </motion.button>
     )
