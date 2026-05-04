@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap");
 
 @import "tailwindcss";
 
@@ -9,9 +9,19 @@
   --color-text-primary: #cee797;
   --color-text-dim: #374f44;
   --color-lime: #ebf1dc;
+  --color-white: #f8ffe8;
+  --color-black: #000000;
+  --color-danger: #bb2124;
+  --color-danger-secondary: #bb212398;
 
-  --font-display: "Syne", sans-serif;;
+  --font-display: "Syne", sans-serif;
   --font-body: "Anton", sans-serif;
+
+  --radius: 0.5rem;
+  --radius-sm: 1rem;
+  --radius-md: 2rem;
+  --radius-lg: 4rem;
+  --radius-full: 99999px;
 }
 
 @theme {
@@ -20,14 +30,70 @@
   --color-text-primary: var(--color-text-primary);
   --color-text-dim: var(--color-text-dim);
   --color-lime: var(--color-lime);
+  --color-white: var(--color-white);
+  --color-black: var(--color-black);
+  --color-danger: var(--color-danger);
+  --color-danger-secondary: var(--color-danger-secondary);
+
+  --radius: var(--radius);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
+}
+
+@layer components {
+  .custom-shadow {
+    box-shadow: 0 6px 0px rgb(0, 0, 0);
+  }
+
+  .custom-shadow-2 {
+    box-shadow: 0 10px 0px rgb(0, 0, 0);
+  }
+
+  .icons {
+    @apply w-6 h-6;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-b from-white via-white/80 to-white/40 bg-clip-text text-transparent;
+  }
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-primary);
   color: var(--color-lime);
-;
+  letter-spacing: 1.5px;
+}
+
+::selection {
+  background: var(--color-text-primary);
+  color: var(--color-primary);
+}
+
+::-moz-selection {
+  background: var(--color-text-primary);
+  color: var(--color-primary);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-dim);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-primary);
 }
