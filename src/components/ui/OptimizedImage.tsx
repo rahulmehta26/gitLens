@@ -1,5 +1,6 @@
 import { useState, useCallback, memo, type ImgHTMLAttributes } from "react";
 import { cn } from "../../utils/cn";
+import githubProfile from "../../assets/github-image.png"
 
 interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     fallback?: string;
@@ -7,7 +8,7 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 }
 
 const OptimizedImage = memo(function OptimizedImage({
-    src, alt = "", fallback = "", className, skeletonCls, ...props
+    src, alt = "", fallback = githubProfile, className, skeletonCls, ...props
 }: OptimizedImageProps) {
     const [loaded, setLoaded] = useState(false);
     const [errored, setErrored] = useState(false);
