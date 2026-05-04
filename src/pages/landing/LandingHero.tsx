@@ -11,31 +11,37 @@ const LandingHero = () => {
 
     return (
         <div
-            className='flex relative max-w-5xl mx-auto flex-col h-screen justify-center items-center'
+            className='flex relative max-w-5xl pt-24 mx-auto flex-col h-screen justify-evenly items-center px-4 sm:px-8'
         >
 
             <h3
-                className='font-bold text-xl'
+                className='font-bold md:text-xl text-sm sm:text-base '
             >
                 INTRODUCING
             </h3>
 
             <h1
-                className='text-[7rem] text-text-primary font-display font-extrabold'
+                className={cn(
+                    'text-text-primary font-display font-extrabold',
+                    "text-4xl sm:text-6xl md:text-7xl lg:text-[7rem]"
+                )}
             >
                 GITLENS
             </h1>
 
             <h2
                 className={cn(
-                    'pb-6 text-center text-lime text-[3rem] font-extrabold',
+                    'pb-6 text-center text-lime font-extrabold',
+                    'text-sm sm:text-2xl md:text-3xl lg:text-[3rem]',
                 )}
             >
                 Visualize Any Developer's <br />
                 <span
                     className="bg-gradient-to-b from-lime via-lime/80 to-lime/40 bg-clip-text text-transparent"
 
-                >GitHub Journey</span>
+                >
+                    GitHub Journey
+                </span>
             </h2>
 
 
