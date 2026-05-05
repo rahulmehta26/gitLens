@@ -71,7 +71,7 @@ const RepoCard = memo(({ repo, index }: { repo: GithubRepo; index: number }) => 
 const RepoGrid = memo(({ repos }: { repos: GithubRepo[] }) => {
 
     return (
-        <div className="pb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="pb-4 md:pb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:gap-4">
             {
                 repos?.map((repo, index) => <RepoCard key={repo.id} repo={repo} index={index} />)
             }
