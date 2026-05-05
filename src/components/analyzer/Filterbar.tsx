@@ -60,52 +60,44 @@ const Filterbar = memo(({ availableLangs, availableYears, totalShown, totalAll }
 
 
     return (
-        <div>
-            <div
-                className='w-full flex items-center gap-6'
-            >
+        <>
+            <div className='w-full flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6'>
+
                 <Input
                     value={filters.search}
                     onChange={(e) => setSearchFilter(e.target.value)}
                     placeholder='search repositories...'
                 />
 
-                <div
-                    className='flex items-center gap-4'
-                >
-                    {
-                        SORTS?.map(({ label, value }) => {
-                            return (
-                                <button
-                                    key={value}
-                                    onClick={() => setSortBy(value)}
-
-                                    className={cn(
-                                        "border-2 py-2 px-4 hover:border-lime rounded-full cursor-pointer border-lime/30",
-                                        "transition-all duration-300",
-                                        filters?.sortBy === value && "border-lime bg-text-primary text-primary font-semibold custom-shadow "
-                                    )}
-                                >
-                                    {label}
-                                </button>
-                            )
-                        })
-                    }
+                <div className='flex items-center gap-2 sm:gap-4'>
+                    {SORTS?.map(({ label, value }) => (
+                        <button
+                            key={value}
+                            onClick={() => setSortBy(value)}
+                            className={cn(
+                                "border-2 py-1.5 sm:py-2 px-3 sm:px-4 hover:border-lime rounded-full cursor-pointer border-lime/30",
+                                "transition-all duration-300 text-sm sm:text-base",
+                                filters?.sortBy === value && "border-lime bg-text-primary text-primary font-semibold custom-shadow"
+                            )}
+                        >
+                            {label}
+                        </button>
+                    ))}
                 </div>
 
-                <span className="text-xs text-lime/50 ml-auto shrink-0">{totalShown} / {totalAll} repos</span>
+                <span className="text-xs text-lime/50 sm:ml-auto shrink-0">
+                    {totalShown} / {totalAll} repos
+                </span>
             </div>
 
-            <div
-                className='flex items-center gap-12 mt-10 mb-4'
-            >
+            <div className='flex flex-wrap items-center gap-4 sm:gap-6 md:gap-12 mt-6 sm:mt-10 mb-4'>
 
                 <Dropdown
                     options={langOptions}
                     value={filters.language}
                     onChange={handleLang}
                     placeholder="All Languages"
-                    className="w-44"
+                    className="w-40 sm:w-44"
                 />
 
                 <Dropdown
@@ -113,22 +105,21 @@ const Filterbar = memo(({ availableLangs, availableYears, totalShown, totalAll }
                     value={filters.year}
                     onChange={handleYear}
                     placeholder="All Years"
-                    className="w-36"
+                    className="w-32 sm:w-36"
                 />
-                {isFiltered &&
-                    (
-                        <Button
-                            variant="ghost"
-                            onClick={resetFilters}
-                            className='flex shadow-none group items-center gap-2 text-lime/50 hover:text-lime '
-                        >
-                            <X className='group-hover:rotate-90 duration-300 transition-all' />
-                            Clear filters
-                        </Button>
-                    )
-                }
+
+                {isFiltered && (
+                    <Button
+                        variant="ghost"
+                        onClick={resetFilters}
+                        className='flex shadow-none group items-center gap-2 text-lime/50 hover:text-lime'
+                    >
+                        <X className='group-hover:rotate-90 duration-300 transition-all' />
+                        Clear filters
+                    </Button>
+                )}
             </div>
-        </div>
+        </>
     )
 })
 
