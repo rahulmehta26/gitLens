@@ -11,7 +11,13 @@ const Footer = () => {
 
     const navigate = useNavigate();
     return (
-        <footer className='w-full h-full bg-secondary'>
+        <footer
+            className='w-full h-full bg-secondary'
+            style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ebf1dc'/%3E%3C/svg%3E")`,
+                backgroundSize: "52px 26px"
+            }}
+        >
 
             <div
                 className='max-w-5xl min-h-screen lg:pt-12 flex flex-col mx-auto px-4 sm:px-8'
