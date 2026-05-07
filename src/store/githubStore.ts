@@ -19,7 +19,7 @@ interface GithubStore {
 
 const DEFAULT_FILTERS: FilterState = {
   language: "all",
-  sortBy: "stars",
+  sortBy: "created",
   year: "all",
   search: "",
 };
