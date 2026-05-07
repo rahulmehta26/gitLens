@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import Card from "../ui/Card";
 import type { LanguageStat } from "../../types/github.types";
-import { Cell, Pie, PieChart, ResponsiveContainer, Sector, Tooltip } from "recharts";
+import { Cell, Pie, PieChart, ResponsiveContainer, Sector, Tooltip, type SectorProps } from "recharts";
 import Skeleton from "../ui/Skeleton";
 
 interface LanguageChartProps {
@@ -53,13 +53,12 @@ const LanguageChart = memo(({ data, loading }: LanguageChartProps) => {
                                     outerRadius={90}
                                     paddingAngle={3}
                                     stroke="none"
-                                    shape={(props: any) => {
-                                        const { payload } = props;
-
+                                    shape={(props: SectorProps & { payload?: LanguageStat }) => {
+                                        const { payload, ...rest } = props;
                                         return (
                                             <Sector
-                                                {...props}
-                                                fill={payload.color}
+                                                {...rest}
+                                                fill={payload?.color}
                                                 stroke="none"
                                                 strokeWidth={0}
                                                 opacity={0.9}
