@@ -22,12 +22,12 @@ export function aggregateLanguages(
 
 export function sortRepos(
   repos: GithubRepo[],
-  by: "stars" | "created" | "updated",
+  by: "stars" | "updated",
 ): GithubRepo[] {
   return [...repos].sort((a, b) => {
     if (by === "stars") return b.stargazers_count - a.stargazers_count;
-    if (by === "created")
-      return +new Date(b.created_at) - +new Date(a.created_at);
-    return +new Date(b.updated_at) - +new Date(a.updated_at);
+    if (by === "updated")
+      return +new Date(b.updated_at) - +new Date(a.updated_at);
+    return +new Date(b.created_at) - +new Date(a.created_at);
   });
 }
