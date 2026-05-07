@@ -58,7 +58,7 @@ const UserProfile = memo(({ user, loading }: UserProfileProps) => {
                         <span className="text-lime">
                             {user?.followers}{" "}
                             <span className="text-xs text-lime/50 font-semibold">
-                                {user?.followers === 1 ? "Follower" : "Followers"}
+                                {user?.followers <= 1 ? "Follower" : "Followers"}
                             </span>
                         </span>
                         <span className="text-lime">
